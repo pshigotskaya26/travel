@@ -92,7 +92,7 @@ sliderNavNext.addEventListener('click', function() {
     direction = -1;
     createCloneElem();
     setTimeout(function() {
-        sliderContent.style.transition ='2s all ease-in-out';
+        sliderContent.style.transition ='1s all ease-in-out';
         animateSlides();
     });
 });
@@ -103,10 +103,10 @@ sliderNavPrev.addEventListener('click', function() {
     sliderContent.style.left = leftSliderContent + (-stepSlider) +'px';
     createCloneElem();
     setTimeout(function() {
-        sliderContent.style.transition ='2s all ease-in-out';
+        sliderContent.style.transition ='1s all ease-in-out';
     });
     setTimeout(function() {
-        sliderContent.style.transition ='2s all ease-in-out';
+        sliderContent.style.transition ='1s all ease-in-out';
         animateSlides();
     });
 });
@@ -118,7 +118,7 @@ sliderContent.addEventListener('transitionend', function() {
         
         sliderContent.style.left = leftSliderContent + 'px';
         setTimeout(function() {
-            sliderContent.style.transition ='2s all ease-in-out';
+            sliderContent.style.transition ='1s all ease-in-out';
         });
     }
     else {
