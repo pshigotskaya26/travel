@@ -844,11 +844,11 @@ h3 {
 }
 .footer {
   position: relative;
-  margin-top: -62px;
+  margin-top: -65px;
 }
 @media (max-width: 1440px) {
   .footer {
-    margin-top: calc(-65px + 3 * (100vw - 390px) / 1050);
+    margin-top: calc(-65px + 0 * (100vw - 390px) / 1050);
   }
 }
 
