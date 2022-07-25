@@ -75,6 +75,48 @@ h3 {
   }
 }
 
+.logo__link {
+  display: inline-flex;
+  gap: 4px;
+  padding-bottom: 9px;
+  line-height: 39px;
+}
+@media (max-width: 390px) {
+  .logo__link {
+    padding-bottom: 0;
+    padding-top: 30px;
+  }
+}
+
+.logo__text {
+  padding-top: 7px;
+  padding-left: 3px;
+  font-family: "Magra", Arial, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  color: #FFFFFF;
+  line-height: 39px;
+}
+@media (max-width: 1200px) {
+  .logo__text {
+    font-size: calc(15px + 17 * (100vw - 391px) / 809);
+    line-height: calc(22px + 17 * (100vw - 391px) / 809);
+  }
+}
+@media (max-width: 390px) {
+  .logo__text {
+    display: none;
+  }
+}
+
+.logo-icon {
+  display: inline-block;
+  width: 216px;
+  height: 31px;
+  background-image: url(../assets/svg/logo.svg);
+}
+
 .button {
   padding: 10px 30px;
   font-family: "Red Hat Text";
