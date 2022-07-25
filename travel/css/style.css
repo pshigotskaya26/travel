@@ -349,6 +349,109 @@ h3 {
     display: none;
   }
 }
+.footer {
+  position: relative;
+  margin-top: -62px;
+}
+@media (max-width: 1440px) {
+  .footer {
+    margin-top: calc(-65px + 3 * (100vw - 390px) / 1050);
+  }
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  height: 61px;
+  align-items: center;
+}
+@media (max-width: 1440px) {
+  .footer__container {
+    height: calc(65px + -4 * (100vw - 390px) / 1050);
+  }
+}
+@media (max-width: 1200px) {
+  .footer__container {
+    padding: 0 15px;
+  }
+}
+
+.links-github-rss {
+  flex: 0 1 33.333%;
+  justify-content: flex-start;
+  display: flex;
+  gap: 15px;
+}
+@media (max-width: 390px) {
+  .links-github-rss {
+    gap: 10px;
+  }
+}
+
+.footer__link-github {
+  width: 35px;
+  height: 35px;
+}
+@media (max-width: 490px) {
+  .footer__link-github {
+    width: calc(25px + 10 * (100vw - 391px) / 99);
+    height: calc(25px + 10 * (100vw - 391px) / 99);
+  }
+}
+
+.footer__link-rss {
+  width: 97px;
+  height: 38px;
+}
+@media (max-width: 490px) {
+  .footer__link-rss {
+    width: calc(70px + 27 * (100vw - 391px) / 99);
+    height: auto;
+  }
+}
+
+.footer__text {
+  flex: 0 1 33.333%;
+  padding-top: 5px;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  text-align: center;
+  color: #FFFFFF;
+}
+@media (max-width: 490px) {
+  .footer__text {
+    font-size: calc(10px + 6 * (100vw - 391px) / 99);
+    line-height: calc(15px + 6 * (100vw - 391px) / 99);
+  }
+}
+@media (max-width: 390px) {
+  .footer__text {
+    display: none;
+  }
+}
+
+.social-links {
+  flex: 0 1 33.333%;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  padding-top: 4px;
+}
+@media (max-width: 390px) {
+  .social-links {
+    margin-left: -6px;
+  }
+}
+
+.social-links__link {
+  display: inline-block;
+}
+
 .main {
   margin-top: -90px;
 }

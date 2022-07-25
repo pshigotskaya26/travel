@@ -1,0 +1,85 @@
+
+.footer {
+	position: relative;
+	margin-top: -62px;
+	@media (max-width: 1440px) {
+		margin-top: calc(-65px + (-62 - (-65)) * ((100vw - 390px) / (1440 - 390)));
+	}
+}
+
+.footer__container {
+	max-width: $container-inside-width;
+	margin: 0 auto;
+	display: flex;
+	height: 61px;
+	align-items: center;
+	@media (max-width: 1440px) {
+		height: calc(65px + (61 - 65) * ((100vw - 390px) / (1440 - 390)));
+	}
+	@media (max-width: 1200px) {
+		padding: 0 15px;
+	}
+}
+
+.links-github-rss {
+	flex: 0 1 33.333%;
+	justify-content: flex-start;
+	display: flex;
+	gap: 15px;
+	@media (max-width: 390px) {
+		gap: 10px;
+	}
+}
+
+.footer__link-github {
+	width: 35px;
+	height: 35px;
+	@media (max-width: 490px) {
+		width: calc(25px + (35 - 25) * ((100vw - 391px) / (490 - 391)));
+		height: calc(25px + (35 - 25) * ((100vw - 391px) / (490 - 391)));
+	}
+}
+
+.footer__link-rss {
+	width: 97px;
+	height: 38px;
+	@media (max-width: 490px) {
+		width: calc(70px + (97 - 70) * ((100vw - 391px) / (490 - 391)));
+		height: auto;
+	}
+}
+
+.footer__text {
+	flex: 0 1 33.333%;
+	padding-top: 5px;
+	font-family: 'Red Hat Text';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 21px;
+	text-align: center;
+	color: $color-white;
+	@media (max-width: 490px) {
+		font-size: calc(10px + (16 - 10) * ((100vw - 391px) / (490 - 391)));
+		line-height: calc(15px + (21 - 15) * ((100vw - 391px) / (490 - 391)));
+	}
+	@media (max-width: 390px) {
+		display: none;
+	}
+}
+
+.social-links {
+	flex: 0 1 33.333%;
+	justify-content: flex-end;
+	display: flex;
+	align-items: center;
+	gap: 23px;
+	padding-top: 4px;
+	@media (max-width: 390px) {
+		margin-left: -6px;
+	}
+}
+
+.social-links__link {
+	display: inline-block
+}
