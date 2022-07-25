@@ -75,6 +75,20 @@ h3 {
   }
 }
 
+h4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: #0D606F;
+}
+@media (max-width: 1200px) {
+  h4 {
+    font-size: calc(15px + 17 * (100vw - 390px) / 810);
+    line-height: calc(23px + 15 * (100vw - 390px) / 810);
+  }
+}
+
 .logo__link {
   display: inline-flex;
   gap: 4px;

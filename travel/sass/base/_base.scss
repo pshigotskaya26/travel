@@ -73,3 +73,15 @@ h3 {
 	}
 }
 
+h4 {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 38px;
+	color: $color-additional;
+	@media (max-width: 1200px) {
+		font-size: calc(15px + (32 - 15) * ((100vw - 390px) / (1200 - 390)));
+        line-height: calc(23px + (38 - 23) * ((100vw - 390px) / (1200 - 390)));  
+	}
+}
+
