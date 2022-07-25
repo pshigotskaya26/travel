@@ -1,0 +1,30 @@
+
+.container {
+    max-width: $container-width;
+	margin: 0 auto;
+}
+
+.header__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 90px;
+	background: rgba(242, 120, 92, 0.7);
+	box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
+}
+
+.header__container,
+.preview__container,
+.steps__container,
+.stories__container,
+.footer__coontainer {
+	padding: 0 120px;
+}
+
+.preview__container {
+	position: absolute;
+	top: 90px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
