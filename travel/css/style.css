@@ -165,6 +165,16 @@ h4 {
     line-height: calc(15px + 6 * (100vw - 391px) / 809);
   }
 }
+.button_font-20 {
+  font-size: 20px;
+  line-height: 26px;
+}
+@media (max-width: 1200px) {
+  .button_font-20 {
+    font-size: calc(13px + 7 * (100vw - 390px) / 810);
+    line-height: calc(19px + 7 * (100vw - 390px) / 810);
+  }
+}
 .button_font-24 {
   padding: 13px 32px 13px 34px;
   font-size: 24px;
