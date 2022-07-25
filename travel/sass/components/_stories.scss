@@ -7,9 +7,9 @@
 }
 
 .stories {
-	padding-top: 79px;
+	padding-top: 83px;
 	@media (max-width: 1200px) {
-		padding-top: calc(18px + (79 - 18) * ((100vw - 390px) / (1200 - 390)));
+		padding-top: calc(18px + (83 - 18) * ((100vw - 390px) / (1200 - 390)));
 	}
 }
 
@@ -20,9 +20,9 @@
     background-image: url(../assets/img/stories-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-	padding-bottom: 61px; 
+	padding-bottom: 65px; 
 	@media (max-width: 1440px) {
-		padding-bottom: calc(65px + (61 - 65) * ((100vw - 390px) / (1440 - 390)));
+		padding-bottom: calc(65px + (65 - 65) * ((100vw - 390px) / (1440 - 390)));
 	}
 	@media (max-width: 390px) {
 		background-image: url(../assets/img/stories-bg-390.jpg);
@@ -32,11 +32,11 @@
 	position: relative;
     width: 100%;
     height: 100%;
-    padding-bottom: 37px;
+    padding-bottom: 41px;
     background: rgba(255, 255, 255, 0.7);
     background-repeat: no-repeat;
 	@media (max-width: 1440px) {
-		padding-bottom: calc(13px + (37 - 13) * ((100vw - 390px) / (1440 - 390)));
+		padding-bottom: calc(13px + (41 - 13) * ((100vw - 390px) / (1440 - 390)));
 	}
 }
 
@@ -52,11 +52,11 @@
 	flex-direction: column;
 	gap: 30px;
 	padding-top: 37px;
-	padding-bottom: 42px;
+	padding-bottom: 38px;
 	@media (max-width: 1200px) {
 		gap: calc(15px + (30 - 15) * ((100vw - 390px) / (1200 - 390)));
 		padding-top: calc(10px + (37 - 10) * ((100vw - 390px) / (1200 - 390)));
-		padding-bottom: calc(11px + (42 - 11) * ((100vw - 390px) / (1200 - 390)));
+		padding-bottom: calc(11px + (38 - 11) * ((100vw - 390px) / (1200 - 390)));
 	}
 }
 

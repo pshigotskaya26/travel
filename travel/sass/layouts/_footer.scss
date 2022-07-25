@@ -1,9 +1,9 @@
 
 .footer {
 	position: relative;
-	margin-top: -62px;
+	margin-top: -65px;
 	@media (max-width: 1440px) {
-		margin-top: calc(-65px + (-62 - (-65)) * ((100vw - 390px) / (1440 - 390)));
+		margin-top: calc(-65px + (-65 - (-65)) * ((100vw - 390px) / (1440 - 390)));
 	}
 }
 
