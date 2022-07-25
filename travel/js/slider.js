@@ -37,12 +37,10 @@ const setActiveClassToIndicator = () => {
     if (widthWindow <= 390) {
         let valueDataId = +arrsliderItem[0].dataset.id;
         elementsIndicators[valueDataId].classList.add('indicators__item_active');
-        console.log(390);
     }
     else {
         let valueDataId = +arrsliderItem[1].dataset.id;
         elementsIndicators[valueDataId].classList.add('indicators__item_active');
-        console.log(1440);
     }
     
 };
