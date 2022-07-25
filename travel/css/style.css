@@ -377,6 +377,32 @@ h3 {
   background-image: url(../assets/svg/icon-twitter_hover.svg);
   transition: 0.3s;
 }
+.icon_facebook {
+  width: 24px;
+  height: 24px;
+  background-image: url(../assets/svg/icon-facebook.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media (max-width: 1200px) {
+  .icon_facebook {
+    width: calc(20px + 4 * (100vw - 390px) / 810);
+    height: calc(20px + 4 * (100vw - 390px) / 810);
+  }
+}
+.icon_google {
+  width: 24px;
+  height: 24px;
+  background-image: url(../assets/svg/icon-google.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media (max-width: 1200px) {
+  .icon_google {
+    width: calc(20px + 4 * (100vw - 390px) / 810);
+    height: calc(20px + 4 * (100vw - 390px) / 810);
+  }
+}
 
 .container {
   max-width: 1440px;
