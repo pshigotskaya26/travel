@@ -1,0 +1,37 @@
+@import "../abstract/constants";
+
+html {
+	font-size: 10px;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: 'Aleo', Arial, Verdana, sans-serif;
+}
+
+h1 {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80px;
+	line-height: 96px;
+}
+
+h2 {
+	font-family: 'Red Hat Text', Arial, Verdana, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 53px;
+	text-transform: uppercase;
+	text-align: center;
+	color: $color-primery;
+}
+
+h3 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 42px;
+	color: $color-additional;
+}
+

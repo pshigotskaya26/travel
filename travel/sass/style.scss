@@ -1,3 +1,124 @@
+@import "base/base";
+@import "abstract/constants";
+@import "layouts/container";
+
 * {
-    margin:  0 auto;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	text-decoration: none;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	scroll-behavior: smooth;
+	background-color: $color-white;
+}
+
+ul {
+	list-style: none;
+}
+
+.header {
+	position: relative;
+    z-index: 3;
+}
+
+.logo {
+	
+}
+.logo__link {
+	display: inline-flex;
+	gap: 4px;
+	padding-bottom: 9px;
+	line-height: 39px;
+}
+
+.logo__text {
+	padding-top: 7px;
+	padding-left: 3px;
+    font-family: "Magra", Arial, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    color: $color-white;
+    line-height: 39px;
+}
+
+.logo-icon {
+	display: inline-block;
+	width: 216px;
+	height: 31px;
+	background-image: url(../assets/svg/logo.svg);
+}
+
+.header__navigation {
+	padding-right: 31px;
+}
+
+.navigation {
+	display: flex;
+	gap: 42px;
+}
+
+.navigation__link {
+	font-family: 'Red Hat Text';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.6rem;
+	line-height: 2.1rem;
+	text-transform: capitalize; 
+	color: $color-white;
+}
+
+.navigation__link:last-child {
+	padding-right: 0px;
+}
+
+.navigation__link a {
+	color: $color-white;
+}
+
+.navigation__link a:hover {
+	color: $color-additional;
+	transition: 0.5s;
+}
+
+.button {
+	padding: 10px 30px;
+	font-family: 'Red Hat Text';
+	font-style: normal;
+	font-weight: 500;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: $color-additional;
+	color: $color-white;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: $color-button-hover;
+	transition: 0.5s;
+}
+
+.button_shadow {
+	-moz-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
+	-webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
+}
+
+.button_font-16 {
+	font-size: 1.6rem;
+	line-height: 21px;
+}
+
+.button_font-24 {
+	padding: 13px 32px 13px 34px;
+	font-size: 2.4rem;
+	line-height: 32px;
 }
