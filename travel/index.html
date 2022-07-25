@@ -10,6 +10,34 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div class="popup hidden"></div>
+	<div class="modal-login">
+		<div class="modal-login__account">
+			<h4 class="modal-login__title">Log in to your account</h4>
+			<a href="#" class="modal-login__link modal-login__link_bg-blue modal-login__link_text-wh"><span class="icon icon_facebook"></span>Sign In with Facebook</a>
+			<a href="#" class="modal-login__link modal-login__link_bg-white"><span class="icon icon_google"></span>Sign In with Google</a>
+		</div>
+		<div class="separator"><span>or</span></div>
+		<div class="modal-login__form">
+			<form action="">
+				<div class="form__email">
+					<label class="label" for="email">E-mail</label>
+					<input class="input" type="text" name="email" required>
+				</div>
+				<div class="form__password">
+					<label class="label" for="password">Password</label>
+					<input class="input" type="text" name="password" required>
+				</div>
+				<button class="button button_font-20">Sign In</button>	
+			</form>
+		</div>
+		<div class="modal-login__links">
+			<a class="modal-links__item" href="#">Forgot Your Password?</a>
+			<hr>
+			<p class="modal-login__text">Don’t have an account? <a class="modal-links__item" href="#">Register</a></p>
+		</div>
+	</div>
+	
 	<header class="header">
 			<div class="container">
 				<div class="header__bg">
@@ -32,7 +60,7 @@
 								<li class="navigation__link"><a href="#destinations">Destinations</a></li>
 								<li class="navigation__link"><a href="#stories">Travel stories</a></li>
 								<li class="navigation__link navigation__link_hidden"><a href="#">Account</a></li>
-								<li class="navigation__link navigation__link_hidden"><a href="#s">Social media</a></li>
+								<li class="navigation__link navigation__link_hidden"><a href="#social">Social media</a></li>
 							</ul>
 						</nav>
 
@@ -104,7 +132,7 @@
 
 		<section class="destinations" id="destinations">
 			<h2 class="destinations__title">Popular destinations</h2>
-			<div class="destinations__slider slider">
+			<div class="destinations__slider">
 				<div class="slider__wrapper">
 					<div class="slider__nav slider__nav_prev">
 						<div class="slider-icon slider-icon_prev">
@@ -122,30 +150,29 @@
 						<div class="slider__content">
 							<div class="slider__item slider__item_prev">
 								<img class="img-visible" src="assets/img/slider-img-1.jpg" alt="slider photo 1">
-								<img class="img-hidden" src="assets/img/slider-img-hid-3.jpg" alt="slider photo 1">
+								<img class="img-hidden" src="assets/img/slider-img-hid-1.jpg" alt="slider photo 1">
 								<p class="slider__text slider__text_visible">Spain</p>
-								<p class="slider__text slider__text_hidden">Usa</p>
+								
 							</div>
 							<div class="slider__item slider__item_center">
 								<img class="img-visible" src="assets/img/slider-img-2.jpg" alt="slider photo 1">
-								<img class="img-hidden" src="assets/img/slider-img-hid-1.jpg" alt="slider photo 1">
+								<img class="img-hidden" src="assets/img/slider-img-hid-2.jpg" alt="slider photo 1">
 								<p class="slider__text slider__text_visible">Japan</p>
-								<p class="slider__text slider__text_hidden">Spain</p>
+								
 							</div>
 							<div class="slider__item slider__item_next">
 								<img class="img-visible" src="assets/img/slider-img-3.jpg" alt="slider photo 1">
-								<img class="img-hidden" src="assets/img/slider-img-hid-2.jpg" alt="slider photo 1">
+								<img class="img-hidden" src="assets/img/slider-img-hid-3.jpg" alt="slider photo 1">
 								<p class="slider__text slider__text_visible">Usa</p>
-								<p class="slider__text slider__text_hidden">Japan</p>
+								
 							</div>
+							
 						</div>
 					</div>
 				</div>
 				
 				<div class="slider__indicators">
 					<div class="indicators">
-						<span class="indicators__item"></span>
-						<span class="indicators__item indicators__item_active"></span>
 						<span class="indicators__item"></span>
 					</div>
 				</div>
@@ -235,7 +262,7 @@
 				</div>
 				
 				<p class="footer__text">All Rights Reserved &copy; Travel Portal</p>
-				<ul class="social-links">
+				<ul id="social" class="social-links">
 					<li><a class="social-links__link" href="https://github.com/pshigotskaya26/" target="_blank"><span class="icon icon_instagram"></span></a></li>
 					<li><a class="social-links__link" href="https://rs.school/js-stage0/" target="_blank"><span class="icon icon_video"></span></a></li>
 					<li><a class="social-links__link" href="#"><span class="icon icon_twitter"></span></a></li>
@@ -245,7 +272,8 @@
 	</footer>
 
 
-	<script src="index.js"></script>
+	<!--<script src="index.js"></script>-->
 	<script src="js/menu.js"></script>
+	<script src="js/slider.js"></script>
 </body>
 </html>

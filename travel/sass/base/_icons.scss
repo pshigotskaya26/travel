@@ -129,4 +129,27 @@
 			transition: 0.3s;
 		}
 	}
+	&_facebook {
+		width: 24px;
+		height: 24px;
+		background-image: url(../assets/svg/icon-facebook.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		@media (max-width: 1200px) {
+			width: calc(20px + (24 - 20) * ((100vw - 390px) / (1200 - 390)));
+			height: calc(20px + (24 - 20) * ((100vw - 390px) / (1200 - 390)));
+		}
+	}
+
+	&_google {
+		width: 24px;
+		height: 24px;
+		background-image: url(../assets/svg/icon-google.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		@media (max-width: 1200px) {
+			width: calc(20px + (24 - 20) * ((100vw - 390px) / (1200 - 390)));
+			height: calc(20px + (24 - 20) * ((100vw - 390px) / (1200 - 390)));
+		}
+	}
 }
