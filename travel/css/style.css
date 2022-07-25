@@ -762,6 +762,131 @@ h3 {
   opacity: 1;
 }
 
+.steps__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .steps__container {
+    padding: 0 15px;
+  }
+}
+
+.steps {
+  padding-top: 80px;
+}
+@media (max-width: 1200px) {
+  .steps {
+    padding-top: calc(20px + 60 * (100vw - 390px) / 810);
+  }
+}
+
+.steps__title {
+  padding-bottom: 40px;
+}
+@media (max-width: 1200px) {
+  .steps__title {
+    padding-bottom: calc(20px + 20 * (100vw - 390px) / 810);
+  }
+}
+
+.steps__content {
+  display: flex;
+}
+@media (max-width: 390px) {
+  .steps__content {
+    justify-content: space-between;
+  }
+}
+
+.step__column {
+  flex: 0 1 33.333%;
+  display: flex;
+  justify-content: center;
+}
+.step__column_start {
+  justify-content: flex-start;
+}
+@media (max-width: 390px) {
+  .step__column_start {
+    flex: 0 1 26.333%;
+  }
+}
+.step__column_end {
+  justify-content: flex-end;
+}
+@media (max-width: 390px) {
+  .step__column_end {
+    flex: 0 1 26.333%;
+  }
+}
+
+.step__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step__icon {
+  padding-bottom: 28px;
+}
+@media (max-width: 390px) {
+  .step__icon {
+    padding-bottom: 19px;
+  }
+}
+.step__icon_left {
+  padding-left: 13px;
+}
+@media (max-width: 390px) {
+  .step__icon_left {
+    align-self: flex-start;
+    padding-left: 0px;
+  }
+}
+.step__icon_right {
+  padding-right: 13px;
+}
+@media (max-width: 390px) {
+  .step__icon_right {
+    align-self: flex-end;
+    padding-right: 0px;
+  }
+}
+
+.step__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #0D606F;
+}
+@media (max-width: 1200px) {
+  .step__text {
+    font-size: calc(10px + 10 * (100vw - 390px) / 810);
+    line-height: calc(12px + 12 * (100vw - 390px) / 810);
+  }
+}
+.step__text_left {
+  padding-left: 11px;
+}
+@media (max-width: 390px) {
+  .step__text_left {
+    padding-left: 0px;
+    text-align: left;
+  }
+}
+.step__text_right {
+  padding-right: 11px;
+}
+@media (max-width: 390px) {
+  .step__text_right {
+    padding-right: 0px;
+    text-align: right;
+  }
+}
+
 .destinations {
   padding-top: 99px;
 }
