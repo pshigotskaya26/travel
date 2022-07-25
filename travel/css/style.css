@@ -1,9 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  background-color: #FFFFFF;
+}
+
+body {
+  height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
 html {
   font-size: 10px;
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 16px;
   font-family: "Aleo", Arial, Verdana, sans-serif;
 }
 
@@ -12,6 +36,12 @@ h1 {
   font-weight: 700;
   font-size: 80px;
   line-height: 96px;
+}
+@media (max-width: 1200px) {
+  h1 {
+    font-size: calc(20px + 60 * (100vw - 391px) / 809);
+    line-height: calc(36px + 60 * (100vw - 391px) / 809);
+  }
 }
 
 h2 {
@@ -24,6 +54,12 @@ h2 {
   text-align: center;
   color: #F2785C;
 }
+@media (max-width: 1200px) {
+  h2 {
+    font-size: calc(14px + 26 * (100vw - 390px) / 810);
+    line-height: calc(19px + 34 * (100vw - 390px) / 810);
+  }
+}
 
 h3 {
   font-style: normal;
@@ -31,6 +67,12 @@ h3 {
   font-size: 35px;
   line-height: 42px;
   color: #0D606F;
+}
+@media (max-width: 1200px) {
+  h3 {
+    font-size: calc(11px + 24 * (100vw - 390px) / 810);
+    line-height: calc(13.2px + 28.8 * (100vw - 390px) / 810);
+  }
 }
 
 .container {
