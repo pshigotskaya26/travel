@@ -1,0 +1,54 @@
+
+.button {
+	padding: 10px 30px;
+	font-family: 'Red Hat Text';
+	font-style: normal;
+	font-weight: 500;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+	background: $color-additional;
+	color: $color-white;
+	cursor: pointer;
+
+	@media (max-width: 1200px) {
+		padding: calc(5px + (10 - 5) * ((100vw - 391px) / (1200 - 391))) calc(15px + (30 - 15) * ((100vw - 391px) / (1200 - 391)));
+	}
+
+	&:hover {
+		background-color: $color-button-hover;
+		transition: 0.5s;
+	}
+
+	&_shadow {
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
+	}
+
+	&_font-16 {
+		font-size: 16px;
+		line-height: 21px;
+		@media (max-width: 1200px) {
+			font-size: calc(10px + (16 - 10) * ((100vw - 391px) / (1200 - 391)));
+			line-height: calc(15px + (21 - 15) * ((100vw - 391px) / (1200 - 391)));
+		}
+	}
+
+	&_font-24 {
+		padding: 13px 32px 13px 34px;
+		font-size: 24px;
+		line-height: 32px;
+		@media (max-width: 1200px) {
+			padding: calc(7.5px + (13 - 7.5) * ((100vw - 390px) / (1200 - 390))) calc(9px + (32 - 9) * ((100vw - 390px) / (1200 - 390)));
+			font-size: calc(11px + (24 - 11) * ((100vw - 390px) / (1200 - 390)));
+			line-height: calc(15px + (32 - 15) * ((100vw - 390px) / (1200 - 390)));
+		}
+	}
+
+	&_icon {
+		display: inline-flex;
+		gap: 10px;
+		align-items: center;
+	}
+}
+
+

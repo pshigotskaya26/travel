@@ -1,0 +1,223 @@
+.destinations {
+	padding-top: 99px;
+	@media (max-width: 1440px) {
+		padding-top: calc(20px + (99 - 20) * ((100vw - 390px) / (1440 - 390)));
+	}
+}
+
+.destinations__title {
+	padding-bottom: 46px;
+	@media (max-width: 1440px) {
+		padding-bottom: calc(20px + (46 - 20) * ((100vw - 390px) / (1440 - 390)));
+	}
+}
+
+.destinations__slider {
+	padding-bottom: 40px;
+	@media (max-width: 1200px) {
+		padding-bottom: calc(23px + (40 - 23) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.slider__wrapper {
+	position: relative;
+	padding-bottom: 24px;
+	overflow: hidden;
+	@media (max-width: 390px) {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+}
+
+.slider__nav {
+	position: absolute;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 258px;
+	height: 804px;
+	cursor: pointer;
+	z-index: 6;
+	@media (max-width: 1440px) {
+		width: calc(68px + (258 - 68) * ((100vw - 391px) / (1440 - 391)));
+		height: calc(214px + (804 - 214) * ((100vw - 391px) / (1440 - 391)));
+	}
+	@media (max-width: 390px) {
+		cursor: default;
+		width: calc(36px + (36 - 36) * ((100vw - 320px) / (390 - 320)));
+		height: calc(165px + (206 - 165) * ((100vw - 320px) / (390 - 320)));
+	}
+}
+
+.slider__nav_prev {
+	left: 0;
+}
+
+.slider__nav_next {
+	right: 0;
+}
+
+.slider-icon {
+	display: none;
+	@media (max-width: 390px) {
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+}
+
+.slider__content {
+	display: flex;
+	justify-content: center;
+	@media (max-width: 390px) {
+		gap: 10px;	
+	}
+}
+
+.slider__item {
+	position: relative;
+	width: 60%;
+	padding:  0 30px;	
+	@media (max-width: 1440px) {
+		padding: 0 calc(10px + (30 - 10) * ((100vw - 391px) / (1440 - 391)));
+	}
+	
+	@media (max-width: 390px) {
+		padding: 0;
+		width: 100%;
+	}
+
+	&:nth-child(1) {
+		margin-left: -60%;
+		@media (max-width: 390px) {
+			margin-left: -100%;
+		}
+	}
+
+	&:nth-child(3) {
+		margin-right: -60%;
+		@media (max-width: 390px) {
+			margin-right: -100%;
+		}
+	}
+}
+
+.slider__item .img-visible { 
+	display: block;
+	width: 100%;
+    height: auto;
+	-moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+	@media (max-width: 390px) {
+		display: none;
+	}
+}
+
+.slider__item .img-hidden { 
+	display: none;
+	width: 100%;
+    height: auto;
+	-moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+	@media (max-width: 390px) {
+		display: block;
+	}
+}
+
+.slider__text {
+	position: absolute;
+	left: 45px;
+	bottom: 40px;
+	font-family: "Red Hat Text", Arial, Verdana, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 42px;
+	text-transform: uppercase;
+	color: $color-white;
+	@media (max-width: 1440px) {
+		left: calc(20px + (45 - 20) * ((100vw - 390px) / (1440 - 390)));
+		bottom: calc(15px + (40 - 15) * ((100vw - 390px) / (1440 - 390)));
+		font-size: calc(20px + (32 - 20) * ((100vw - 390px) / (1440 - 390)));
+		line-height: calc(26px + (42 - 26) * ((100vw - 390px) / (1440 - 390)));
+	}
+	
+	@media (max-width: 390px) {
+		left: 12px;
+		top: 8px;
+		font-size: calc(20px + (32 - 20) * ((100vw - 390px) / (1440 - 390)));
+		line-height: calc(26px + (42 - 26) * ((100vw - 390px) / (1440 - 390)));
+	}
+}
+
+.slider__text_visible {
+	display: block;
+	@media (max-width: 390px) {
+		display: none;
+	}
+}
+
+.slider__text_hidden {
+	display: none;
+	@media (max-width: 390px) {
+		display: block;
+	}
+}
+
+.slider__indicators {
+	display: flex;
+	justify-content: center;
+	@media (max-width: 390px) {
+		position: relative;
+		margin-top: -39px;
+	}
+}
+
+.indicators {
+	display: flex;
+	gap: 10px;
+	@media (max-width: 390px) {
+		gap: 6px;
+	}
+}
+
+.indicators__item {
+	width: 20px;
+	height: 20px;
+	background: rgba(242, 120, 92, 0.5);
+	-moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+	border-radius: 50%;
+	@media (max-width: 1440px) {
+		width: calc(8px + (20 - 8) * ((100vw - 390px) / (1440 - 390)));
+		height: calc(8px + (20 - 8) * ((100vw - 390px) / (1440 - 390)));
+	}
+
+	&_active {
+		background: $color-primery;
+	}
+
+	&:nth-child(2) {
+		background: $color-primery;
+		@media (max-width: 390px) {
+			background: rgba(242, 120, 92, 0.5);
+		}
+	}
+	&:nth-child(1) {
+		background: rgba(242, 120, 92, 0.5);
+		@media (max-width: 390px) {
+			background: $color-primery;
+		}
+	}
+}
+
+.destinations__button {
+	display: flex;
+	justify-content: center;
+}
