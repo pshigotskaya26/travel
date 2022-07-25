@@ -1151,6 +1151,230 @@ h3 {
   justify-content: center;
 }
 
+.stories__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .stories__container {
+    padding: 0 15px;
+  }
+}
+
+.stories {
+  padding-top: 79px;
+}
+@media (max-width: 1200px) {
+  .stories {
+    padding-top: calc(18px + 61 * (100vw - 390px) / 810);
+  }
+}
+
+.stories__background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/img/stories-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 61px;
+}
+@media (max-width: 1440px) {
+  .stories__background {
+    padding-bottom: calc(65px + -4 * (100vw - 390px) / 1050);
+  }
+}
+@media (max-width: 390px) {
+  .stories__background {
+    background-image: url(../assets/img/stories-bg-390.jpg);
+  }
+}
+
+.stories__background_light {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 37px;
+  background: rgba(255, 255, 255, 0.7);
+  background-repeat: no-repeat;
+}
+@media (max-width: 1440px) {
+  .stories__background_light {
+    padding-bottom: calc(13px + 24 * (100vw - 390px) / 1050);
+  }
+}
+
+.stories__title {
+  padding-bottom: 39px;
+}
+@media (max-width: 1200px) {
+  .stories__title {
+    padding-bottom: calc(10px + 29 * (100vw - 390px) / 810);
+  }
+}
+
+.stories__content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 37px;
+  padding-bottom: 42px;
+}
+@media (max-width: 1200px) {
+  .stories__content {
+    gap: calc(15px + 15 * (100vw - 390px) / 810);
+    padding-top: calc(10px + 27 * (100vw - 390px) / 810);
+    padding-bottom: calc(11px + 31 * (100vw - 390px) / 810);
+  }
+}
+
+.story {
+  display: flex;
+  gap: 40px;
+}
+@media (max-width: 1200px) {
+  .story {
+    gap: calc(10px + 30 * (100vw - 390px) / 810);
+  }
+}
+
+.story__image {
+  width: 35%;
+}
+@media (max-width: 390px) {
+  .story__image {
+    width: 53%;
+    height: 130px;
+  }
+}
+
+.story__image_visible {
+  display: block;
+}
+@media (max-width: 390px) {
+  .story__image_visible {
+    display: none;
+  }
+}
+
+.story__image_hidden {
+  display: none;
+}
+@media (max-width: 390px) {
+  .story__image_hidden {
+    display: block;
+  }
+}
+
+.story__image img {
+  width: 100%;
+  height: 100%;
+  -moz-border-radius: 16px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  filter: drop-shadow(0px 4px 4px #0D606F);
+  object-fit: cover;
+}
+@media (max-width: 390px) {
+  .story__image img {
+    max-width: 155px;
+  }
+}
+
+.story_content {
+  width: 66%;
+}
+@media (max-width: 390px) {
+  .story_content {
+    padding-top: 5px;
+  }
+}
+
+.story__title {
+  padding-bottom: 23px;
+}
+@media (max-width: 1200px) {
+  .story__title {
+    padding-bottom: calc(10px + 13 * (100vw - 390px) / 810);
+  }
+}
+
+.story__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0D606F;
+}
+@media (max-width: 1200px) {
+  .story__text {
+    font-size: calc(9px + 11 * (100vw - 390px) / 810);
+    line-height: calc(10.8px + 13.2 * (100vw - 390px) / 810);
+  }
+}
+
+.story__text_visible {
+  display: block;
+}
+@media (max-width: 390px) {
+  .story__text_visible {
+    display: none;
+  }
+}
+
+.story__text_hidden {
+  display: none;
+}
+@media (max-width: 390px) {
+  .story__text_hidden {
+    display: block;
+  }
+}
+
+.story__link {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0D606F;
+  text-decoration: underline;
+}
+@media (max-width: 1200px) {
+  .story__link {
+    display: block;
+    font-size: calc(9px + 11 * (100vw - 390px) / 810);
+    line-height: calc(10.8px + 13.2 * (100vw - 390px) / 810);
+  }
+}
+
+.story__link:hover {
+  color: #F2785C;
+  transition: 0.3s;
+}
+
+.stories__button {
+  display: flex;
+  justify-content: center;
+}
+
+.stories__button .button_icon {
+  gap: 12.5px;
+}
+@media (max-width: 390px) {
+  .stories__button .button_icon {
+    gap: 6.5px;
+  }
+}
+
+.stories__button .button_font-24 {
+  padding: 13px 40px 13px 34px;
+}
+@media (max-width: 1200px) {
+  .stories__button .button_font-24 {
+    padding: calc(7.5px + 5.5 * (100vw - 390px) / 810) calc(13.5px + 26.5 * (100vw - 390px) / 810);
+  }
+}
+
 .main {
   margin-top: -90px;
 }
