@@ -624,6 +624,7 @@ body {
   background-color: transparent;
   border: 0;
   outline: 0;
+  z-index: 20;
 }
 @media (max-width: 768px) {
   .name {
