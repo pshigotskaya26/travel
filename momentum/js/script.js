@@ -193,7 +193,7 @@ async function getWeather() {
     }
     getLocalStorageCity();
     
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=55e7ef33e06b16ee0bed5d123beb81e2&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=0bc92fedfc326ec47af8dabb7409b2bc&units=metric`;
 
     const res = await fetch(url);
     if (res.ok) {
