@@ -234,8 +234,7 @@ async function getQuotes() {
     const res = await fetch(urlQuotes);
 
     const data = await res.json();
-    console.log('data');
-    console.log(data);
+
     dataQuotesFromJson = data;
     randomNumberForQuotes = getRandomNumForQuotes();
 
