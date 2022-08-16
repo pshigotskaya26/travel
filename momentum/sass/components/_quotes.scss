@@ -1,0 +1,25 @@
+.change-quote {
+    margin-bottom: 30px;
+    background-image: url("../assets/svg/reload.svg");
+    @media (max-width: 530px) {
+        margin-bottom: calc(10px + (30 - 10) * ((100vw - 320px) / (530 - 320)));
+    }
+}
+
+.quote {
+    min-height: 32px;
+    padding-bottom: 5px;
+    @media (max-width: 530px) {
+        padding-bottom: calc(10px + (5 - 10) * ((100vw - 320px) / (530 - 320)));
+        font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (530 - 320)));
+    }
+}
+  
+.author {
+    min-height: 20px;
+    @media (max-width: 530px) {
+        padding-bottom: calc(10px + (5 - 10) * ((100vw - 320px) / (530 - 320)));
+        font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (530 - 320)));
+    }
+}
+
