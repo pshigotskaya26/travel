@@ -229,7 +229,8 @@ const getRandomNumForQuotes = () => {
 
 //get random quote
 async function getQuotes() {
-    const urlQuotes = 'http://127.0.0.1:5500/js/data.json';
+    //const urlQuotes = 'http://127.0.0.1:5500/js/data.json';
+    const urlQuotes = 'data.json';
     const res = await fetch(urlQuotes);
 
     const data = await res.json();
