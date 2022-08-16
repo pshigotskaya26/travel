@@ -1,0 +1,177 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 6px;
+    width: 100%;
+    height: 30vh;
+    min-height: 160px;
+    padding: 20px;
+    @media (max-width: 530px) {
+       padding-top: calc(5px + (20 - 5) * ((100vw - 320px) / (530 - 320)));
+    }
+}
+
+.footer-links {
+    /*position: fixed;
+    right: 5px;
+    bottom: 5px;*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    background: rgba(0, 92, 200, 0.9);
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+}
+
+.footer__link-github {
+    width: 35px;
+    height: 35px;
+}
+
+.footer__link-rss {
+    width: 45px;
+    height: 25px;
+}
+
+.footer-block-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.todolist__link {
+    display: block;
+    padding: 5px;
+    color: $color-primery;
+    font-size: 20px;
+    background: rgba(0, 92, 200, 0.9);
+    
+}
+
+.todolist {
+    position: absolute;
+    right: 10px;
+    bottom: 15vh;
+    padding: 10px;
+    width: 250px;
+    height: 260px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 92, 200, 0.9);
+    opacity: 0;
+    transition: 0.5s ease-out;
+    @media (max-width: 768px) {
+        bottom: 26vh;
+    }
+}
+
+.todolist.visible {
+    opacity: 1;
+    z-index: 21;
+}
+
+.todolist__tab1,
+.todolist__tab2,
+.todolist__tab3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 10px 15px;
+    background-color: $color-blue;
+}
+
+.todolist__tab1,
+.todolist__tab2,
+.todolist__tab3 {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 10px;
+}
+
+.tab__title {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.tab1-list__item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px; 
+}
+
+.span-edit {
+    position: absolute;
+    top: -7px;
+    right: 5px;
+    z-index: 5;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tab__button {
+    display: flex;
+    justify-content: center;
+}
+
+.todolist__tab1 {
+    z-index: 1;
+}
+
+.todolist__tab2 {
+    z-index: 0;
+}
+
+.todolist__tab3 {
+    z-index: 0;
+}
+
+.link__back {
+    margin-top: 30px;
+    color: $color-primery;
+    text-decoration: none;
+}
+.input-new-point,
+.input-edit {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: none;
+    outline: none;
+}
+
+.span-links {
+    position: absolute;
+    right: 40px;
+    top: -70px;
+    display: none;
+    padding: 10px;
+    background-color: $color-primery;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), 0px 2px 3px rgb(13 96 111 / 16%);
+    color: $color-blue;
+    
+}
+
+.link_edit,
+.link_delete {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.span-links.active {
+    display: block;
+}
+
+.error-text {
+    font-style: italic;
+    color: $color-bottom
+}
+

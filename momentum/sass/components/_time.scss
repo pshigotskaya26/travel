@@ -1,0 +1,17 @@
+.time {
+    min-height: 124px;
+    margin-bottom: 10px;
+    font-family: 'Arial-MT';
+    font-size: 100px;
+    letter-spacing: -4px;
+    
+    transition: 0.3s;
+    @media (max-width: 1500px) {
+		font-size: calc(72px + (100 - 72) * ((100vw - 768px) / (1500 - 768)));
+        
+	}
+    @media (max-width: 768px) {
+        min-height: 80px;
+    }
+}
+

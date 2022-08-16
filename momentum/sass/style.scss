@@ -1,0 +1,77 @@
+@import "abstract/constants";
+
+@import "base/base";
+@import "base/icons";
+@import "base/buttons";
+
+
+
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "components/weather";
+@import "components/player";
+@import "components/greeting";
+@import "components/quotes";
+@import "components/time";
+@import "components/date";
+@import "components/settings";
+
+
+@font-face {
+  font-family: "Arial-MT";
+  src: url("../assets/fonts/Arial-MT.woff"); /* Путь к файлу со шрифтом */
+}
+
+body {
+  background: url("../assets/img/bg.jpg") center/cover, rgba(0, 0, 0, 0.5);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  text-align: center;
+  background-blend-mode: multiply;
+  transition: background-image 1s ease-in-out;
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+/*
+.body-hidden {
+  display: none;
+  
+  &_active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9990;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+*/
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
+  min-height: 260px;
+  padding: 20px;
+  @media (max-width: 768px) {
+    padding-top: calc(70px + (20 - 70) * ((100vw - 585px) / (768 - 585)));
+  }
+  @media (max-width: 465px) {
+    padding-top: calc(20px + (70 - 20) * ((100vw - 320px) / (465 - 320)));
+  }
+}
+
+
+
+

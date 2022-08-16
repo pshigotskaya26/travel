@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+<body class="">
+  <header class="header">
+
+    <div class="player">
+     
+
+      <p class="player-title">text</p>
+          
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+
+        <div class="player-progress">
+          <input class="progress-bar" type="range" min="0" max="100" value="0">
+            <div class="progress-time">
+              <div class="progress-current-time">0:00</div>
+              <div class="progress-total-time"></div>
+            </div>
+        </div>
+          
+        <div class="player-volume">
+          <button class="player-volume-button player-icon player-volume_on"></button>
+          <input class="player-volume-control" type="range" min="0" max="100" value="70">
+        </div>
+          
+      </div>
+      <ul class="play-list"></ul>
+    </div>
+
+    <div class="weather">
+      <input type="text" class="city" />
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="[Enter name]" />
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="body-settings hidden"></div>
+    <div class="settings">
+      <div class="settings__content">
+        <div class="block-settings">
+          <div class="block-settings__name lang-en">language</div>
+          <div class="block-settings__name lang-ru">Язык</div>
+          <div class="block-settings__content">
+            <div class="content-item">
+              <p><input id="language-en" class="input-language input-language-en" checked type="radio" name="language" value="en">en</p>
+              <p><input id="language-ru" class="input-language input-language-ru" type="radio" name="language" value="ru">ru</p>
+            </div>
+           
+          </div>
+        </div>
+        <div class="block-settings">
+          <div class="block-settings__name lang-en">source of photos</div>
+          <div class="block-settings__name lang-ru">источник фотографий</div>
+          <div class="block-settings__content">
+            <div class="content-item">
+              <p><input class="input-photosource" checked type="radio" name="source" value="github">GitHub</p>
+              <p><input class="input-photosource" type="radio" name="source" value="unsplash">Unsplash API</p>
+              <p><input class="input-photosource" type="radio" name="source" value="flickr">Flickr API</p>
+            </div>
+           
+          </div>
+        </div>
+        <div class="block-settings">
+          <div class="block-settings__name lang-en">show / hide</div>
+          <div class="block-settings__name lang-ru">Показать / Скрыть</div>
+          <div class="block-settings__content">
+            <div class="content-item content-item__switch">
+              <h4 class="block-settings__title lang-ru">время</h4>
+              <h4 class="block-settings__title lang-en">time</h4>
+              <input class="input-time" type="checkbox" checked>
+            </div>
+            <div class="content-item content-item__switch">
+              <h4 class="block-settings__title lang-en">date</h4>
+              <h4 class="block-settings__title lang-ru">дата</h4>
+              <input class="input-date" type="checkbox" checked>
+            </div>
+            <div class="content-item content-item__switch">
+              <h4 class="block-settings__title lang-en">greeting</h4>
+              <h4 class="block-settings__title lang-ru">приветствие</h4>
+              <input class="input-greeting" type="checkbox" checked>
+            </div>
+            <div class="content-item content-item__switch">
+              <h4 class="block-settings__title lang-en">quote</h4>
+              <h4 class="block-settings__title lang-ru">цитата</h4>
+              <input class="input-quote" type="checkbox" checked>
+            </div>
+            <div class="content-item content-item__switch">
+              <h4 class="block-settings__title lang-en">weather</h4>
+              <h4 class="block-settings__title lang-ru">погода</h4>
+              <input class="input-weather" type="checkbox" checked>
+            </div>
+            <div class="content-item content-item__switch">
+              <h4 class="block-settings__title lang-en">audio</h4>
+              <h4 class="block-settings__title lang-ru">аудиоплеер</h4>
+              <input class="input-audio" type="checkbox" checked>
+            </div>
+            <div class="content-item content-item__switch">
+              <h4 class="block-settings__title lang-en">todolist</h4>
+              <h4 class="block-settings__title lang-ru">список дел</h4>
+              <input class="input-todolist" type="checkbox" checked>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-settings">
+      <span class="icon icon_settings"></span>
+    </div>
+    <div class="quote-container">
+      <button class="change-quote"></button>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+    <div class="footer-block-links">
+      <div class="todolist">
+        
+          <div class="todolist__tab1">
+            
+            <h4 class="tab__title lang-en">My ToDo List:</h4>
+            <h4 class="tab__title lang-ru">Мой список дел</h4>
+            <ol class="tab1-list">
+              <li class="tab1-list__item">Learn JavaScript<span class="span-edit">...</span><span class="span-links"><a class="link_edit lang-en">Edit</a>&nbsp;&nbsp;<a class="link_delete lang-en">Delete</a><a class="link_edit lang-ru">изменить</a>&nbsp;&nbsp;<a class="link_delete lang-ru">удалить</a></span></li>
+              <li class="tab1-list__item">Learn Css<span class="span-edit">...</span><span class="span-links"><a class="link_edit lang-en">Edit</a>&nbsp;&nbsp;<a class="link_delete lang-en">Delete</a><a class="link_edit lang-ru">изменить</a>&nbsp;&nbsp;<a class="link_delete lang-ru">удалить</a></span></li>
+            </ol>
+            
+            <div class="tab__button">
+              <button class="button button-add-point lang-en">Add new point</button>
+              <button class="button button-add-point lang-ru">Добавить новый пункт</button>
+            </div>
+          </div>
+
+          <div class="todolist__tab2">
+            <h4 class="tab__title lang-en">New point to ToDo List:</h4>
+            <h4 class="tab__title lang-ru">Новый пункт в список:</h4>
+            <input class="input-new-point" type="text">
+            <div class="error-text"></div>
+            <div class="tab__button">
+              <button class="button button-add-toList lang-en">Add point to ToDo List</button>
+              <button class="button button-add-toList lang-ru">Добавить новый пункт в список</button>
+            </div>
+            <a href="#" class="link__back lang-en">&#8592; Back</a>
+            <a href="#" class="link__back lang-ru">&#8592; Назад</a>
+          </div>
+
+          <div class="todolist__tab3">
+            <h4 class="tab__title lang-en">Edit the point:</h4>
+            <h4 class="tab__title lang-ru">Редактировать пукнт:</h4>
+            <input class="input-edit" type="text">
+            <div class="tab__button">
+              <button class="button button-save lang-en">save</button>
+              <button class="button button-save lang-ru">сохранить</button>
+            </div>
+            <a href="#" class="link__back lang-en">&#8592; Back</a>
+            <a href="#" class="link__back lang-ru">&#8592; Назад</a>
+          </div>
+       
+        
+      </div>
+      <div class="button-todolist">
+        <a href="#" class="todolist__link lang-en">ToDo List</a>
+        <a href="#" class="todolist__link lang-ru">Список дел</a>
+      </div>
+      <div class="footer-links">
+        <a class="footer__link-github" href="https://github.com/pshigotskaya26" target="_blank"><span class="icon icon_github"></span></a>
+        <p>2022</p>
+        <a class="footer__link-rss" href="https://rs.school/js-stage0/" target="_blank"><span class="icon icon_rsschool"></span></a>
+      </div>
+    </div>
+    
+    
+    
+  </footer>
+  <script type="module" src="js/script.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

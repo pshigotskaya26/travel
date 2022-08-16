@@ -1,0 +1,92 @@
+.body-settings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9990;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.body-settings.hidden {
+    display: none;
+}
+
+.button-settings {
+    flex: 0 0 auto;
+    width: 35px;
+    height: 35px;
+    z-index: 9991;
+    cursor: pointer;
+}
+
+.settings {
+    position: fixed;
+    left: -265px;
+    bottom: 70px;
+    z-index: 100;
+    width: 265px;
+    height: 380px;
+    padding: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 92, 200, 0.9);
+    transition: left 0.5s ease-out;
+}
+
+.settings.visible {
+    left: 20px;
+    z-index: 9991;
+}
+
+.settings__content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.block-settings {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $color-bottom;
+
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+.block-settings__name {
+    width: 70px;
+    text-align: left;
+}
+
+.block-settings__content {
+    text-align: left;
+}
+
+.content-item p {
+    padding-bottom: 5px;
+}
+
+input[type='radio'] {
+    margin-right: 10px;
+}
+
+.content-item__switch {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.content-item__switch h4 {
+    width: 100px;
+}
+
+.lang-ru {
+    display: none;
+}
+
+

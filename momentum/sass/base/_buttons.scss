@@ -1,0 +1,10 @@
+.button {
+    padding: 5px 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: $color-primery;
+    cursor: pointer;
+    color: $color-blue;
+    border: none;
+}
