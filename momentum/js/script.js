@@ -330,14 +330,14 @@ async function getQuotes(numberOfQuoteFromLocal) {
 
     if (localStorage.getItem('language')) {
         if (localStorage.getItem('language') === 'en') {
-            urlQuotes = 'http://127.0.0.1:5500/js/data-en.json';
+            urlQuotes = 'js/data-en.json';
         }
         else if (localStorage.getItem('language') === 'ru') {
-            urlQuotes = 'http://127.0.0.1:5500/js/data.json';
+            urlQuotes = 'js/data.json';
         }
     }
     else {
-        urlQuotes = 'http://127.0.0.1:5500/js/data-en.json';
+        urlQuotes = 'js/data-en.json';
     }
 
    // urlQuotes = 'http://127.0.0.1:5500/js/data.json';
