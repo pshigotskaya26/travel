@@ -1,7 +1,7 @@
 import playList from "./playList.js";
-import todoList from "./todoList.js";
+//import todoList from "./todoList.js";
 
-const bodyPage = document.querySelector('body');
+const bodyPage = document.querySelector('.body');
 const time = document.querySelector('.time');
 const elemDate = document.querySelector('.date');
 const greeting = document.querySelector('.greeting');
@@ -29,8 +29,6 @@ let dataQuotesFromJson;
 const bodySettings = document.querySelector('.body-settings');
 const settings = document.querySelector('.settings');
 const buttonSettings = document.querySelector('.button-settings');
-
-const tab1List = document.querySelector('.tab1-list');
 
 const audio = new Audio();
 let isPlay = false;
@@ -60,6 +58,8 @@ progressCurrentTime.textContent = '0:00';
 
 const progressTotalTime = document.querySelector('.progress-total-time');
 progressTotalTime.textContent = playList[0].duration;
+
+//const arrOfTimesOfDay = ['night', 'morning', 'afternoon', 'evening'];
 const arrOfTimesOfDay = ['night', 'morning', 'afternoon', 'evening'];
 let randomNumber;
 
@@ -74,13 +74,26 @@ const showTime = () => {
     setTimeout(setBg, 1000);  
 };
 
+let currentDate;
 //display current date
 const showDate = () => {
     const date = new Date();
     const options = {weekday: 'long', month: 'long', day: 'numeric'};
-    const currentDate = date.toLocaleDateString('en-EN', options);
+
+    if (localStorage.getItem('language')) {
+        if (localStorage.getItem('language') === 'en') {
+            currentDate = date.toLocaleDateString('en-US', options);
+        }
+        else if (localStorage.getItem('language') === 'ru') {
+            currentDate = date.toLocaleDateString('ru-RU', options);
+        }
+    }
+    else {
+        currentDate = date.toLocaleDateString('en-US', options);
+    }
     elemDate.textContent = currentDate;
 };
+
 
 //display time of day
 const getTimeOfDay = () => {
@@ -102,15 +115,45 @@ const getTimeOfDay = () => {
     }
 };
 
+let timeOfDay;
+let gtreetingText;
+
 //display greeting
 const showGreeting = () => {
-    const timeOfDay = getTimeOfDay();
-    const gtreetingText =  `Good ${timeOfDay},`;
+    if (localStorage.getItem('language')) {
+        if (localStorage.getItem('language') === 'en') {
+            timeOfDay = getTimeOfDay();
+            gtreetingText =  `Good ${timeOfDay},`;
+        }
+        else if (localStorage.getItem('language') === 'ru') {
+            timeOfDay = getTimeOfDay();
+
+            if (timeOfDay === 'night') {
+                gtreetingText = `Доброй ночи,`;
+               
+            }
+            else if (timeOfDay === 'morning') {
+                gtreetingText = `Доброе утро,`;
+               
+            }
+            else if (timeOfDay === 'afternoon') {
+                gtreetingText = `Добрый день,`;
+               
+            }
+            else if (timeOfDay === 'evening') {
+                gtreetingText = `Добрый вечер,`;
+            }  
+        }
+    }
+    else {
+        timeOfDay = getTimeOfDay();
+        gtreetingText =  `Good ${timeOfDay},`;
+    }
     greeting.textContent = gtreetingText;
 };
 
 //save input name in local storage
-const setLocalStorage = () => {
+const setLocalStorageName = () => {
     localStorage.setItem('name', inputNames.value); 
 };
 
@@ -120,25 +163,39 @@ const setLocalStorageCity = () => {
 };
 
 //before unloading or closing the page execute setLocalStorage
-window.addEventListener('beforeunload', setLocalStorage);
+window.addEventListener('beforeunload', setLocalStorageName);
 window.addEventListener('beforeunload', setLocalStorageCity);
 
 //get value of input name from the local storage
-const getLocalStorage = () => {
+const getLocalStorageName = () => {
     if (localStorage.getItem('name')) {
         inputNames.value = localStorage.getItem('name');
+    }
+        
+    if (localStorage.getItem('language')) {
+        if (localStorage.getItem('language') === 'en') {
+            inputNames.placeholder = '[Enter name]';
+        
+        }
+        else if (localStorage.getItem('language') === 'ru') {
+            inputNames.placeholder = '[Введите имя]';
+        }
+    }
+    else {
+        inputNames.placeholder = '[Enter name]';
     }
 };
 
 //get value of input city from local storage
 const getLocalStorageCity = () => {
+    
     if (localStorage.getItem('city')) {
         city.value = localStorage.getItem('city');
     }
 };
 
 //before loading the page the input value needs to be displayed
-window.addEventListener('load', getLocalStorage);
+window.addEventListener('load', getLocalStorageName);
 window.addEventListener('load', getLocalStorageCity);
 
 const getRandomNum = () => {
@@ -193,22 +250,58 @@ async function getWeather() {
     }
     getLocalStorageCity();
     
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=0bc92fedfc326ec47af8dabb7409b2bc&units=metric`;
+    let url;
+    
+    if (localStorage.getItem('language')) {
+        if (localStorage.getItem('language') === 'en') {
+            url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=0bc92fedfc326ec47af8dabb7409b2bc&units=metric`;
+        }
+        else if (localStorage.getItem('language') === 'ru') {
+            url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=0bc92fedfc326ec47af8dabb7409b2bc&units=metric`;
+        }
+    }
+    else {
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=0bc92fedfc326ec47af8dabb7409b2bc&units=metric`;
+    }
 
     const res = await fetch(url);
     if (res.ok) {
         weatherError.textContent = '';
         const data = await res.json();
+        
         weatherIcon.className = 'weather-icon owf';
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = `${Math.round(data.main.temp)}°C`;
         weatherDescription.textContent = data.weather[0].description;
-        windSpeed.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
-        humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
-        //console.log(data.weather[0].id, data.weather[0].description, data.main.temp, data.name);
+        if (localStorage.getItem('language')) {
+            if (localStorage.getItem('language') === 'en') {
+                windSpeed.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
+                humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+            }
+            else if (localStorage.getItem('language') === 'ru') {
+                windSpeed.textContent = `Скорость ветра: ${Math.round(data.wind.speed)} m/s`;
+                humidity.textContent = `Влажность: ${Math.round(data.main.humidity)}%`;
+            }
+        }
+        else {
+            windSpeed.textContent = `Wind speed: ${Math.round(data.wind.speed)} m/s`;
+            humidity.textContent = `Humidity: ${Math.round(data.main.humidity)}%`;
+        }
+    //console.log(data.weather[0].id, data.weather[0].description, data.main.temp, data.name);
     }
     else {
-        weatherError.textContent = 'You entered incorrect city name.';
+        if (localStorage.getItem('language')) {
+            if (localStorage.getItem('language') === 'en') {
+                weatherError.textContent = 'You entered incorrect city name.';
+            }
+            else if (localStorage.getItem('language') === 'ru') {
+                weatherError.textContent = 'Вы ввели некорректное название города.';
+            }
+        }
+        else {
+            weatherError.textContent = 'You entered incorrect city name.';
+        }
+        //weatherError.textContent = 'You entered incorrect city name.';
         temperature.textContent = '';
         weatherDescription.textContent = '';
         windSpeed.textContent = '';
@@ -227,26 +320,62 @@ const getRandomNumForQuotes = () => {
     return Math.floor(Math.random() * 20);
 };
 
+let urlQuotes;
+let numberOfCurrentQuote;
+let resForQuotes;
+let dataForQuotes;
+
 //get random quote
-async function getQuotes() {
-    //const urlQuotes = 'http://127.0.0.1:5500/js/data.json';
-    const urlQuotes = 'js/data.json';
-    const res = await fetch(urlQuotes);
+async function getQuotes(numberOfQuoteFromLocal) {
 
-    const data = await res.json();
+    if (localStorage.getItem('language')) {
+        if (localStorage.getItem('language') === 'en') {
+            urlQuotes = 'http://127.0.0.1:5500/js/data-en.json';
+        }
+        else if (localStorage.getItem('language') === 'ru') {
+            urlQuotes = 'http://127.0.0.1:5500/js/data.json';
+        }
+    }
+    else {
+        urlQuotes = 'http://127.0.0.1:5500/js/data-en.json';
+    }
 
-    dataQuotesFromJson = data;
-    randomNumberForQuotes = getRandomNumForQuotes();
+   // urlQuotes = 'http://127.0.0.1:5500/js/data.json';
+    resForQuotes = await fetch(urlQuotes);
 
-    quote.textContent = `"${data[randomNumberForQuotes].text}"`;
-    author.textContent = data[randomNumberForQuotes].author;
+    dataForQuotes = await resForQuotes.json();
+    //dataQuotesFromJson = dataForQuotes;
+
+    //if the argument is empty
+    if (numberOfQuoteFromLocal === undefined) {
+        randomNumberForQuotes = getRandomNumForQuotes();
+        numberOfCurrentQuote = randomNumberForQuotes;
+    }
+    //if the argument is not empty
+    else {
+        numberOfCurrentQuote = numberOfQuoteFromLocal;
+    }
+    
+    setLocalStorageNumberOfQuote();
+    quote.textContent = `"${dataForQuotes[randomNumberForQuotes].text}"`;
+    author.textContent = dataForQuotes[randomNumberForQuotes].author;
 }
+
+//save numberOfCurrentQuote in local storage
+const setLocalStorageNumberOfQuote = () => {
+    localStorage.setItem('numberOfCurrentQuote', numberOfCurrentQuote); 
+};
+
+//before unloading or closing the page execute setLocalStorage
+window.addEventListener('beforeunload', setLocalStorageNumberOfQuote);
 
 //if clickon update button, quote is updated
 buttonQuote.addEventListener('click', () => {
     randomNumberForQuotes = getRandomNumForQuotes();
-    quote.textContent = `"${dataQuotesFromJson[randomNumberForQuotes].text}"`;
-    author.textContent = dataQuotesFromJson[randomNumberForQuotes].author;
+    numberOfCurrentQuote = randomNumberForQuotes;
+    setLocalStorageNumberOfQuote();
+    quote.textContent = `"${dataForQuotes[randomNumberForQuotes].text}"`;
+    author.textContent = dataForQuotes[randomNumberForQuotes].author;
 });
 
 let audioTime;
@@ -412,8 +541,7 @@ playlist.addEventListener('click', function(event) {
     if (titleOfClickedElement === titleOfActiveTrack) {
         if (element.classList.contains('play-item_active')) {
             clearInterval(audioPlayId);
-            isPlay = true;
-            
+            isPlay = true;  
         }
         else {
             isPlay = false;
@@ -555,8 +683,8 @@ const elementsWithLangEn = document.querySelectorAll('.lang-en');
 const elementsWithLangRu = document.querySelectorAll('.lang-ru');
 const inputWithLanguageEn = document.querySelector('.input-language-en');
 const inputWithLanguageRu = document.querySelector('.input-language-ru');
-const languageEn = document.getElementById('language-en');
-const languageRu = document.getElementById('language-en');
+//const languageEn = document.getElementById('language-en');
+//const languageRu = document.getElementById('language-en');
 const inputTime = document.querySelector('.input-time');
 const inputDate = document.querySelector('.input-date');
 const inputGreeting = document.querySelector('.input-greeting');
@@ -651,15 +779,25 @@ const showHideTodolisOpacity = () => {
     if (inputTodolist.checked == true) {
         inputTodolist.checked = true;
         opacityOfTodolist = '1';
-        buttonFootertodolist.style.opacity = opacityOfTodolist;
+
+        buttonsOpenToDoList.forEach(item => {
+            item.style.opacity = opacityOfTodolist;
+        });
+        
+        //buttonOpenToDoList.style.opacity = opacityOfTodolist;
     } else {
         inputTodolist.checked = false;
         opacityOfTodolist = '0';
-        buttonFootertodolist.style.opacity = opacityOfTodolist;
+
+        buttonsOpenToDoList.forEach(item => {
+            item.style.opacity = opacityOfTodolist;
+        });
+        //buttonOpenToDoList.style.opacity = opacityOfTodolist;
     }
 };
 
-const toggleLanguage = (inputRadio) => {
+//switch the language when click on inputRadio
+async function toggleLanguage(inputRadio) {
 	if (inputRadio.classList.contains('input-language-en')) {
         language = 'en';
 
@@ -670,6 +808,12 @@ const toggleLanguage = (inputRadio) => {
         elementsWithLangRu.forEach(elem => {
             elem.style.display = 'none';
         });
+
+        setLocalStorageLanguage();
+        numberOfCurrentQuote = localStorage.getItem('numberOfCurrentQuote');
+        getQuotes(numberOfCurrentQuote);
+        getWeather();
+        getLocalStorageName();
     }
 
     if (inputRadio.classList.contains('input-language-ru')) {
@@ -682,8 +826,13 @@ const toggleLanguage = (inputRadio) => {
         elementsWithLangRu.forEach(elem => {
             elem.style.display = 'block';
         });
-    }
-    
+
+        setLocalStorageLanguage();
+        numberOfCurrentQuote = localStorage.getItem('numberOfCurrentQuote');
+        getQuotes(numberOfCurrentQuote);
+        getWeather();
+        getLocalStorageName();
+    } 
 };
 
 //save value of isTime in local storage
@@ -728,7 +877,7 @@ window.addEventListener('beforeunload', setLocalStoragePlayer);
 window.addEventListener('beforeunload', setLocalStorageToDolist);
 window.addEventListener('beforeunload', setLocalStorageLanguage);
 
-//get value of isTime from local storage
+//get value of opacity of the variable named time from local storage
 const getLocalStorageTime = () => {
     if (localStorage.getItem('time')) {
         if (localStorage.getItem('time') === '1') {
@@ -744,6 +893,7 @@ const getLocalStorageTime = () => {
     }
 };
 
+//get value of opacity of the variable named date from local storage
 const getLocalStorageDate = () => {
     if (localStorage.getItem('date')) {
         if (localStorage.getItem('date') === '1') {
@@ -759,6 +909,7 @@ const getLocalStorageDate = () => {
     }
 };
 
+//get value of opacity of the variable named greeting from local storage
 const getLocalStorageGreeting = () => {
     if (localStorage.getItem('greeting')) {
         if (localStorage.getItem('greeting') === '1') {
@@ -774,6 +925,7 @@ const getLocalStorageGreeting = () => {
     }
 };
 
+//get value of opacity of the variable named quote from local storage
 const getLocalStorageQuote = () => {
     if (localStorage.getItem('quote')) {
         if (localStorage.getItem('quote') === '1') {
@@ -789,6 +941,7 @@ const getLocalStorageQuote = () => {
     }
 };
 
+//get value of opacity of the variable named weather from local storage
 const getLocalStorageWeather = () => {
     if (localStorage.getItem('weather')) {
         if (localStorage.getItem('weather') === '1') {
@@ -804,6 +957,7 @@ const getLocalStorageWeather = () => {
     }
 };
 
+//get value of opacity of the variable named player from local storage
 const getLocalStoragePlayer = () => {
     if (localStorage.getItem('player')) {
         if (localStorage.getItem('player') === '1') {
@@ -819,21 +973,29 @@ const getLocalStoragePlayer = () => {
     }
 };
 
+//get value of opacity of the variable named todolist from local storage
 const getLocalStorageTodolist = () => {
     if (localStorage.getItem('todolist')) {
         if (localStorage.getItem('todolist') === '1') {
-            buttonFootertodolist.style.opacity = 1;
+            buttonsOpenToDoList.forEach(item => {
+                item.style.opacity = 1;
+            });
+            //buttonOpenToDoList.style.opacity = 1;
             opacityOfTodolist = 1;
             inputTodolist.checked = true;
         }
         else if (localStorage.getItem('todolist') === '0') {
-            buttonFootertodolist.style.opacity = 0;
+            buttonsOpenToDoList.forEach(item => {
+                item.style.opacity = 0;
+            });
+            //buttonOpenToDoList.style.opacity = 0;
             opacityOfTodolist = 0;
             inputTodolist.checked = false;
         }
     }
 };
 
+//get value of the variable named language from local storage and do elements visible or hidden
 const getLocalStorageLanguage = () => {
     if (localStorage.getItem('language')) {
         if (localStorage.getItem('language') === 'en') {
@@ -847,9 +1009,8 @@ const getLocalStorageLanguage = () => {
             });
             
             language = 'en';
-
             inputWithLanguageEn.checked = true;
-
+            
         }
         else if (localStorage.getItem('language') === 'ru') {
 
@@ -862,8 +1023,8 @@ const getLocalStorageLanguage = () => {
             });
 
             language = 'ru';
-
-            inputWithLanguageRu.checked = true;
+            inputWithLanguageRu.checked = true; 
+            
         }
     }
 };
@@ -913,162 +1074,103 @@ for(let i = 0; i < arrOfInputRadio.length; i++) {
     };
 }
 
-//create tags li in todolist
-/*const createTodoList = () => {
-    for (let i = 0; i < todoList.length; i++) {
-        const li = document.createElement('li');
-        const spanEdit = document.createElement('span');
-        const spanLinks = document.createElement('span');
-        li.classList.add('tab1-list__item');
-        spanEdit.classList.add('span-edit');
-        spanLinks.classList.add('span-links');
-        li.textContent = `${i+1}. ${todoList[i]}`;
-        spanEdit.textContent = '...';
-        spanLinks.innerHTML = '<a class="link_edit">Edit</a>&nbsp;/&nbsp;<a class="link_delete">Delete</a>';
-        tab1List.append(li);
-        li.append(spanEdit);
-        li.append(spanLinks);
-    }
-};
-*/
-const todolistTab1 = document.querySelector('.todolist__tab1');
-const todolistTab2 = document.querySelector('.todolist__tab2');
-const todolistTab3 = document.querySelector('.todolist__tab3');
-
-const buttonFootertodolist = document.querySelector('.button-todolist');
-const todolist = document.querySelector('.todolist');
-const buttonsAddPoint = document.querySelectorAll('.button-add-point');
-const buttonsSavePoint = document.querySelectorAll('.button-save');
-const linkBack = document.querySelectorAll('.link__back');
-
-const spanEdit = document.querySelectorAll('.span-edit');
-const spanLinks = document.querySelectorAll('.span-links');
-const linksTodolist = document.querySelectorAll('.todolist__link');
-const linkEdit = document.querySelectorAll('.link_edit');
-const linkDelete = document.querySelectorAll('.link_delete');
-const buttonsAddToList = document.querySelectorAll('.button-add-toList');
-const inputNewPoint = document.querySelector('.input-new-point');
+const todoList = document.querySelector('.todolist');
+const todolistList = document.querySelector('.todolist-list');
+const inputValueForAddItem = document.querySelector('.input-add');
+const buttonsAddItem= document.querySelectorAll('.button-add');
+const buttonsOpenToDoList = document.querySelectorAll('.open-todolist');
 const errorText = document.querySelector('.error-text');
 
-let countOfClick = 0;
+//array of points of ToDoList
+let arrayToDo = [];
 
-const showHideTodolist = () => {
-    
-    todolist.classList.toggle('visible');
-    changeZIndex(1, 0, 0);
-    spanLinks.forEach(elem => {
-        elem.classList.remove('active');
+
+//add object Of Point Of ToDoList in arrayToDo
+const addPointInToDo = (text) => {
+    const pointToDo = {
+        text,
+        done: false,
+        id: `${Math.random()}`
+    };
+
+    arrayToDo.push(pointToDo);
+}
+
+//delete object Of Point Of ToDoList from arrayToDo
+const deletePointFromToDo = (id) => {
+    arrayToDo.forEach(pointToDo => {
+        if (pointToDo.id === id) {
+            pointToDo.done = true;
+        }
     });
+}
+
+//display points of ToDoList on the web-page
+const displayPointsToDo = () => {
+    console.log(arrayToDo);
+    let htmlCode = '';
+
+    arrayToDo.forEach((pointToDo, index) => {
+        if (pointToDo.done) {
+            return;
+        }
+        htmlCode += `
+            <li class="todolist-list__item" data-id="${pointToDo.id}"><span>${pointToDo.text}</span><button class="button button-done">Done</button></li>
+        `;
+    });
+
+    todolistList.innerHTML = htmlCode;
 };
 
-const changeZIndex = (zindexOfTab1, zindexOfTab2, zindexOfTab3) => {
-    todolistTab1.style.zIndex = zindexOfTab1;
-    todolistTab2.style.zIndex = zindexOfTab2;
-    todolistTab3.style.zIndex = zindexOfTab3;
-};
-
-buttonFootertodolist.addEventListener('click', function() {
-    showHideTodolist();
-    
-    
-    countOfClick = 0;
-});
-
-for(let i = 0; i < buttonsAddPoint.length; i++) {
-    buttonsAddPoint[i].onclick = function () {
-        changeZIndex(0, 1, 0);
-    };
-}
-
-for(let i = 0; i < buttonsSavePoint.length; i++) {
-    buttonsSavePoint[i].onclick = function () {
-        changeZIndex(1, 0, 0);
-    };
-}
-
-linkBack.forEach(elem => {
-    elem.addEventListener('click', function(event) {
-        changeZIndex(1, 0, 0);
-    });
-});
-
-const toggleSpanEdit = () => {
-    const spanEdit = document.querySelectorAll('.span-edit');
-    spanEdit.forEach(elem => {
-        elem.addEventListener('click', function(event) {
-            spanEdit.forEach((elem,index) => {
-                elem.nextSibling.classList.remove('active');
-            });
-            
-            if (countOfClick % 2 === 0) {
-                this.nextSibling.classList.add('active');
-                this.nextSibling.firstChild.classList.add('active');
-                
-            }
-            else {
-                this.nextSibling.classList.remove('active');
-                this.nextSibling.firstChild.classList.remove('active');
-            }
-            countOfClick += 1;
-            
-            
-        });
-    });
-}
-
-
-
-linkEdit.forEach(elem => {
-   elem.addEventListener('click', function() {
-        elem.parentNode.classList.remove('active');
-        changeZIndex(0, 0, 1);
-        countOfClick = 0;
-   });
-});
-
-linkDelete.forEach(elem => {
-    elem.addEventListener('click', function() {
-        const arrayOfTab1ListItems = document.querySelectorAll('.tab1-list__item');
-        if (arrayOfTab1ListItems.length > 1) {
-            elem.parentNode.classList.remove('active');
-            changeZIndex(1, 0, 0);
-            this.parentNode.parentNode.remove();
+// when we click on the button named 'add new point'
+buttonsAddItem.forEach(item => {
+    item.addEventListener('click', function() {
+        if (inputValueForAddItem.value === '') {
+            errorText.textContent = '* Enter your task';
+            inputValueForAddItem.style.border = '1px solid #ff0000';
+        }
+        else {
+            errorText.textContent = '';
+            inputValueForAddItem.style.border = 'none';
+            const text = inputValueForAddItem.value;
+            addPointInToDo(text);
+            displayPointsToDo();
+            inputValueForAddItem.value = ''; 
         }
     });
 });
 
-const createCloneElement = (value) => {
-    node = tab1List.firstElementChild;
-    clone = node.cloneNode(true);
-    clone.removeChild(clone.childNodes[0]);
-    clone.appendChild(document.createTextNode(`${value}`));
-    tab1List.appendChild(clone); 
+
+//when we click on the button named 'done'
+todolistList.addEventListener('click', (event) => {
+    console.log(event.target.parentElement);
+    if (event.target.tagName !== 'BUTTON') {
+        return;
+    }
+      
+    const id = event.target.parentElement.dataset.id;
+    deletePointFromToDo(id);
+    displayPointsToDo();
+});
+
+//switch hidden / visible todolist
+const showHideTodolist = () => {
+    todoList.classList.toggle('visible');
 };
 
-let node;
-let clone;
-let cloneLinkEdit;
-let cloneLinkDelete;
-let valueFromInputOfNewPoint;
-
-const addPointToTodolist = () => {
-    if (inputNewPoint.value === '') {
-        errorText.textContent = '* Enter your task';
-        inputNewPoint.style.border = '1px solid #ff0000';
-    }
-    else {
-        errorText.textContent = '';
-        inputNewPoint.style.border = 'none';
-        createCloneElement(inputNewPoint.value);
-        changeZIndex(1, 0, 0); 
-    }
-};
-
-buttonsAddToList.forEach(elem => {
-    elem.addEventListener('click', function() {
-        addPointToTodolist(); 
+//show hidden todolist or hide visible todolist
+buttonsOpenToDoList.forEach(item => {
+    item.addEventListener('click', function() {
+        showHideTodolist();
     });
 });
+
+/*
+buttonOpenToDoList.addEventListener('click', function() {
+    showHideTodolist();
+    
+});
+*/
 
 getQuotes();
 showTime();
@@ -1077,17 +1179,5 @@ showGreeting();
 getRandomNum();
 setBg();
 getWeather();
-getQuotes();
 createPlayList();
 setBaseVolume();
-toggleSpanEdit();
-
-
-
-
-
-
-
-
-
-
