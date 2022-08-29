@@ -141,63 +141,31 @@
       <div class="author"></div>
     </div>
     <div class="footer-block-links">
+      
       <div class="todolist">
-        
-          <div class="todolist__tab1">
-            
-            <h4 class="tab__title lang-en">My ToDo List:</h4>
-            <h4 class="tab__title lang-ru">Мой список дел</h4>
-            <ol class="tab1-list">
-              <li class="tab1-list__item">Learn JavaScript<span class="span-edit">...</span><span class="span-links"><a class="link_edit lang-en">Edit</a>&nbsp;&nbsp;<a class="link_delete lang-en">Delete</a><a class="link_edit lang-ru">изменить</a>&nbsp;&nbsp;<a class="link_delete lang-ru">удалить</a></span></li>
-              <li class="tab1-list__item">Learn Css<span class="span-edit">...</span><span class="span-links"><a class="link_edit lang-en">Edit</a>&nbsp;&nbsp;<a class="link_delete lang-en">Delete</a><a class="link_edit lang-ru">изменить</a>&nbsp;&nbsp;<a class="link_delete lang-ru">удалить</a></span></li>
-            </ol>
-            
-            <div class="tab__button">
-              <button class="button button-add-point lang-en">Add new point</button>
-              <button class="button button-add-point lang-ru">Добавить новый пункт</button>
-            </div>
-          </div>
-
-          <div class="todolist__tab2">
-            <h4 class="tab__title lang-en">New point to ToDo List:</h4>
-            <h4 class="tab__title lang-ru">Новый пункт в список:</h4>
-            <input class="input-new-point" type="text">
-            <div class="error-text"></div>
-            <div class="tab__button">
-              <button class="button button-add-toList lang-en">Add point to ToDo List</button>
-              <button class="button button-add-toList lang-ru">Добавить новый пункт в список</button>
-            </div>
-            <a href="#" class="link__back lang-en">&#8592; Back</a>
-            <a href="#" class="link__back lang-ru">&#8592; Назад</a>
-          </div>
-
-          <div class="todolist__tab3">
-            <h4 class="tab__title lang-en">Edit the point:</h4>
-            <h4 class="tab__title lang-ru">Редактировать пукнт:</h4>
-            <input class="input-edit" type="text">
-            <div class="tab__button">
-              <button class="button button-save lang-en">save</button>
-              <button class="button button-save lang-ru">сохранить</button>
-            </div>
-            <a href="#" class="link__back lang-en">&#8592; Back</a>
-            <a href="#" class="link__back lang-ru">&#8592; Назад</a>
-          </div>
-       
-        
+        <div class="todolist__item">
+          <h4 class="todolist__title lang-en">My ToDoList</h4>
+          <h4 class="todolist__title lang-ru">Мой список дел</h4>
+          <ol class="todolist-list">
+          </ol>
+        </div>
+        <div class="todolist__item">
+          <input type="text" class="input-add" placeholder="Enter your task">
+          <div class="error-text"></div>
+          <button class="button button-add lang-en">Add new point</button>
+          <button class="button button-add lang-ru">Добавить новый пункт</button>
+        </div>
       </div>
-      <div class="button-todolist">
-        <a href="#" class="todolist__link lang-en">ToDo List</a>
-        <a href="#" class="todolist__link lang-ru">Список дел</a>
-      </div>
+      <button class="open-todolist lang-en">ToDoList</button>
+      <button class="open-todolist lang-ru">Список дел</button>
+
       <div class="footer-links">
         <a class="footer__link-github" href="https://github.com/pshigotskaya26" target="_blank"><span class="icon icon_github"></span></a>
         <p>2022</p>
         <a class="footer__link-rss" href="https://rs.school/js-stage0/" target="_blank"><span class="icon icon_rsschool"></span></a>
       </div>
     </div>
-    
-    
-    
+
   </footer>
   <script type="module" src="js/script.js"></script>
   <script src="index.js"></script>
