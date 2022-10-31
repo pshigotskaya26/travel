@@ -33,6 +33,15 @@
 		}
 	}
 
+	&_font-20 {
+		font-size: 20px;
+		line-height: 26px;
+		@media (max-width: 1200px) {
+			font-size: calc(13px + (20 - 13) * ((100vw - 390px) / (1200 - 390)));
+			line-height: calc(19px + (26 - 19) * ((100vw - 390px) / (1200 - 390)));
+		}
+	}
+
 	&_font-24 {
 		padding: 13px 32px 13px 34px;
 		font-size: 24px;
