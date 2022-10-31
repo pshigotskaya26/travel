@@ -1,0 +1,126 @@
+.header {
+	position: relative;
+    z-index: 3;
+}
+
+.header__bg {
+	position: relative;
+    z-index: 2;
+	min-height: 90px;
+	background: rgba(242, 120, 92, 0.7);
+	box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
+	@media (max-width: 390px) {
+		box-shadow:none;
+		background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 66%);
+	}
+}
+
+.header__container {
+	max-width: $container-inside-width;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 90px;
+	@media (max-width: 1200px) {
+		padding: 0 15px;
+	}
+}
+
+.body-hidden {
+	display: none;
+}
+
+.header__navigation {
+	padding-right: 31px;
+	@media (max-width: 1200px) {
+		padding-right: calc(10px + (31 - 10) * ((100vw - 391px) / (1200 - 391)));
+	}
+	@media (max-width: 390px) {
+		position: fixed;
+		top: 0;
+		right: -165px;
+		z-index: 9998;
+		height: calc(206px + (251 - 206) * ((100vw - 320px) / (390 - 320)));
+		width: 165px;
+		padding-right: 19px;
+		overflow: auto;
+		background-color: $color-primery;	
+		box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
+		transition:  right 0.5s ease-out;
+	}
+}
+
+@media (max-width: 390px) {
+	.header__navigation.active {
+		right: 0px;
+		z-index: 9999;
+	}
+}
+
+.navigation {
+	display: flex;
+	gap: 42px;
+	@media (max-width: 1200px) {
+		gap: calc(5px + (42 - 5) * ((100vw - 391px) / (1200 - 391)));
+	}
+	@media (max-width: 390px) {
+		display: block;
+		padding-top: 44px;
+	}
+}
+
+.navigation__link {
+	font-family: 'Red Hat Text';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 21px;
+	text-transform: capitalize; 
+	color: $color-white;
+	@media (max-width: 1200px) {
+		font-size: calc(10px + (16 - 10) * ((100vw - 391px) / (1200 - 391)));
+		line-height: calc(15px + (21 - 15) * ((100vw - 391px) / (1200 - 391)));
+	}
+	@media (max-width: 390px) {
+		text-align: right;
+		font-size: calc(12px + (16 - 12) * ((100vw - 320px) / (390 - 320)));
+		line-height: calc(17px + (21 - 17) * ((100vw - 320px) / (390 - 320)));
+		margin-bottom: 10px;
+	}
+
+	&_hidden {
+		display: none;
+	}
+
+	&:last-child {
+		padding-right: 0px;
+	}
+
+	&_hidden {
+		@media (max-width: 390px) {
+			display: block;
+		}
+	}
+}
+
+.navigation__link a {
+	color: $color-white;
+	@media (max-width: 390px) {
+		display: block;
+	}
+
+	&:hover {
+		color: $color-additional;
+		transition: 0.5s;
+	}
+}
+
+@media (max-width: 390px) {
+	.header__button {
+		display: none;
+	}
+}

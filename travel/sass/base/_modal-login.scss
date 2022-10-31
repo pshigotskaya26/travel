@@ -1,0 +1,262 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9990;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);   
+}
+
+.popup.hidden {
+    display: none; 
+}
+
+.modal-login {
+    position: fixed;
+    top: -660px;
+    left: calc(50% - 325px);
+    z-index: 10;
+    width: 650px;
+    height: auto;
+    padding: 23px 45px;
+    background: linear-gradient(177.09deg, #FFFFFF 6.15%, #0D606F 202.69%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -moz-border-radius: 16px;
+    -webkit-border-radius: 16px;
+    border-radius: 16px;
+    transition: top 0.5s ease-out;
+    @media (max-width: 1200px) {
+		width: calc(325px + (650 - 325) * ((100vw - 390px) / (1200 - 390)));
+        padding: calc(15px + (23 - 15) * ((100vw - 390px) / (1200 - 390))) calc(25px + (45 - 25) * ((100vw - 390px) / (1200 - 390)));
+        left: calc(50% - calc(162.5px + (325 - 162.5) * ((100vw - 390px) / (1200 - 390))));
+	}
+}
+
+.modal-login.active {
+    top: 155px;
+    z-index: 9991;
+    @media (max-width: 1200px) {
+		top: calc(105px + (155 - 105) * ((100vw - 390px) / (1200 - 390)));
+	}
+
+    @media (max-width: 390px) {
+		top: 30px;
+	}
+}
+
+.modal-login__account {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 29px;
+    @media (max-width: 1200px) {
+		gap: calc(9px + (20 - 9) * ((100vw - 390px) / (1200 - 390)));
+        padding-bottom: calc(10px + (29 - 10) * ((100vw - 390px) / (1200 - 390)));  
+	}
+}
+
+.modal-login__account.hidden {
+    display: none;
+}
+
+.modal-login__account.login {
+    padding-bottom: 19px;
+}
+
+.modal-login__title {
+    text-align: center;
+    padding-bottom: 12px;
+    @media (max-width: 1200px) {
+		padding-bottom: calc(0px + (12 - 0) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.modal-login__link {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 15px;
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    color: $color-additional;
+    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    @media (max-width: 1200px) {
+		gap: calc(10px + (15 - 10) * ((100vw - 390px) / (1200 - 390)));
+        padding: calc(5px + (15 - 5) * ((100vw - 390px) / (1200 - 390))) calc(10px + (15 - 10) * ((100vw - 390px) / (1200 - 390)));
+        font-size: calc(12px + (20 - 12) * ((100vw - 390px) / (1200 - 390)));
+        line-height: calc(18px + (26 - 18) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.modal-login__link.hidden {
+    display: none;
+}
+
+.modal-login__link_bg-blue {
+    background-color: $color-blue;
+}
+
+.modal-login__link_bg-white {
+    background-color: $color-white;
+}
+
+.modal-login__link_text-wh {
+    color: $color-white;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: rgba(13, 96, 111, 0.5);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    padding-bottom: 9px;
+    @media (max-width: 1200px) {
+		font-size: calc(12px + (20 - 12) * ((100vw - 390px) / (1200 - 390)));
+        line-height: calc(16px + (24 - 16) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.separator::before {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(13, 96, 111, 0.5);
+}
+
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(13, 96, 111, 0.5);
+}
+
+.separator span {
+    padding: 0 10px;
+}
+
+.separator.hidden {
+    display: none;
+}
+
+.modal-login__form {
+    padding-bottom: 9px;
+}
+
+.modal-login__form.login {
+    padding-bottom: 18px;
+}
+
+.modal-login__form form {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    @media (max-width: 1200px) {
+		gap: calc(10px + (19 - 10) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.form__email,
+.form__password {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: 400;
+    line-height: 19px;
+    color: $color-additional;
+    @media (max-width: 1200px) {
+		line-height: calc(8px + (19 - 8) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.form__password {
+    padding-bottom: 7px;
+}
+
+.label {
+    font-size: 16px;
+    @media (max-width: 1200px) {
+		font-size: calc(12px + (16 - 12) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.input {
+    padding: 20px;
+    background: $color-white;
+    box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08), inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    @media (max-width: 1200px) {
+		padding: calc(9px + (20 - 9) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.modal-login__form .button {
+    font-weight: 400;
+    padding: 14px 30px;
+    @media (max-width: 1200px) {
+		padding: calc(5px + (14 - 5) * ((100vw - 390px) / (1200 - 390))) calc(21px + (30 - 21) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.modal-login__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 19px;
+    @media (max-width: 1200px) {
+		gap: calc(5px + (19 - 5) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.modal-login__links hr {
+    width: 100%;
+    margin-top: 7px;
+    border-top: 1px solid rgba(13, 96, 111, 0.5);
+    @media (max-width: 1200px) {
+		margin-top: calc(5px + (7 - 5) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.modal-login__text {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: rgba(13, 96, 111, 0.5);
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    text-align: center;
+    @media (max-width: 1200px) {
+		font-size: calc(10px + (15 - 10) * ((100vw - 390px) / (1200 - 390)));
+        line-height: calc(13px + (18 - 13) * ((100vw - 390px) / (1200 - 390)));
+	}
+    
+}
+.modal-links__item {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-decoration-line: underline;
+    color: $color-additional;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    @media (max-width: 1200px) {
+		font-size: calc(10px + (15 - 10) * ((100vw - 390px) / (1200 - 390)));
+        line-height: calc(13px + (18 - 13) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+.modal-links__item.hidden {
+    display: none;
+}
+

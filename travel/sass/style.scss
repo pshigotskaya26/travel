@@ -1,0 +1,49 @@
+@import "base/base";
+@import "base/logo";
+@import "base/buttons";
+@import "base/burger-menu";
+@import "base/modal-login";
+@import "base/icons";
+
+@import "abstract/constants";
+
+@import "layouts/container";
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "components/preview";
+@import "components/steps";
+@import "components/destinations";
+@import "components/stories";
+
+.main {
+	margin-top: -90px;
+	@media (max-width: 914px) {
+		margin-top: -93px;
+	}
+	@media (max-width: 390px) {
+		margin-top: -90px;
+	}
+}
+
+@media (max-width: 390px) {
+	.body-hidden_active {
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 9990;
+		display: block;
+		background-color: rgba(0, 0, 0, 0.5);	
+	}
+
+	body.lock {
+		overflow: hidden;	
+	}
+}
+
+
+
+
+

@@ -1,0 +1,87 @@
+@import "../abstract/constants";
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	text-decoration: none;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+	scroll-behavior: smooth;
+	background-color: $color-white;
+}
+
+body {
+	height: 100%;
+}
+
+ul {
+	list-style: none;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	font-size: 16px;
+	font-family: 'Aleo', Arial, Verdana, sans-serif;
+}
+
+h1 {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80px;
+	line-height: 96px;
+	@media (max-width: 1200px) {
+		font-size: calc(20px + (80 - 20) * ((100vw - 391px) / (1200 - 391)));
+		line-height: calc(36px + (96 - 36) * ((100vw - 391px) / (1200 - 391)));
+	}
+}
+
+
+
+h2 {
+	font-family: 'Red Hat Text', Arial, Verdana, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 53px;
+	text-transform: uppercase;
+	text-align: center;
+	color: $color-primery;
+	@media (max-width: 1200px) {
+		font-size: calc(14px + (40 - 14) * ((100vw - 390px) / (1200 - 390)));
+		line-height: calc(19px + (53 - 19) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+h3 {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 42px;
+	color: $color-additional;
+	@media (max-width: 1200px) {
+		font-size: calc(11px + (35 - 11) * ((100vw - 390px) / (1200 - 390)));
+		line-height: calc(13.2px + (42 - 13.2) * ((100vw - 390px) / (1200 - 390)));
+	}
+}
+
+h4 {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 38px;
+	color: $color-additional;
+	@media (max-width: 1200px) {
+		font-size: calc(15px + (32 - 15) * ((100vw - 390px) / (1200 - 390)));
+        line-height: calc(23px + (38 - 23) * ((100vw - 390px) / (1200 - 390)));  
+	}
+}
+
