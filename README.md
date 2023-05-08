@@ -2,7 +2,7 @@
 
 ## Description of the project:
 
-Travel is a Laning Page website of travel planning.
+Travel is a Laning Page of travel planning.
 
 **Done**: adaptability and interactivity of the Landing Page.
 
