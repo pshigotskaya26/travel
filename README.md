@@ -1,4 +1,22 @@
-# pshigotskaya26-JSFEPRESCHOOL2022Q2
-Private repository for @pshigotskaya26 [https://github.com/rolling-scopes-school/pshigotskaya26-JSFEPRESCHOOL2022Q2/tree/travel](https://github.com/rolling-scopes-school/pshigotskaya26-JSFEPRESCHOOL2022Q2/tree/travel)
+# Travel
 
-Project: Travel [https://rolling-scopes-school.github.io/pshigotskaya26-JSFEPRESCHOOL2022Q2/travel/](https://rolling-scopes-school.github.io/pshigotskaya26-JSFEPRESCHOOL2022Q2/travel/)
+## Description of the project:
+
+Travel is a Laning Page of travel planning.
+
+**Done**: adaptability and interactivity of the Landing Page.
+
+---
+
+### Used technologies:
+
+- HTML
+- CSS
+- JavaScript
+- Sass
+
+---
+
+### Demo:
+
+[Travel](https://rolling-scopes-school.github.io/pshigotskaya26-JSFEPRESCHOOL2022Q2/travel/)
